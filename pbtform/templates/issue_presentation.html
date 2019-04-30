@@ -1,0 +1,105 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Public Barrier Tracker - Issues list" %}{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/issue_presentation.css' %}" />
+{% endblock %}
+{% block extra_header_controls %}
+<div class="header">
+  <h1>Public Barrier Tracker</h1>
+</div>
+{% endblock %}
+{% block main_content %}
+{% if issue %}
+<div class="issuesPage">
+  <h2>Issue number {{issue.id}}</h2>
+  <table>
+    <tr>
+      <th>Created</th>
+      <td>{{issue.date_created|date:'Y-m-d H:i'}}</td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td>{{issue.date_updated|date:'Y-m-d H:i'}}</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+    {% if not issue.closed %}
+      <td>Open</td>
+    {% elif issue.closed %}
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>Date closed</th>
+      <td>{{issue.date_closed|date:'Y-m-d H:i'}}</td>
+    </tr>
+    {% endif %}
+    <tr>
+      <th>Concerning webpage</th>
+      <td>{{issue.webpage_reported}}</td>
+    </tr>
+  </table>
+</div>
+{% endif %}
+
+{% if issue %}
+<div class="issuesPage">
+
+  {% if issue.barrier_report %}
+    {% if issue.information_request %}
+    <div class="infoBoxTitle">Information Request</div><br>
+    <div class="issueType">
+    <div class="infoBoxTitle">Format Requested</div>
+    <div class="infobox">
+      <p>{{issue.information_request.format_requested}}</p>
+    </div>
+    {% else %}
+    <div class="infoBoxTitle">Barrier</div><br>
+    <div class="issueType">
+    {% endif %}
+    <div class="infoBoxTitle">Description</div>
+      <div class="infobox">
+        <p>{{issue.barrier_report.what_went_wrong}}</p>
+      </div>
+    <div class="infoBoxTitle">Automatically collected data</div>
+    <div class="infobox">
+    {% if issue.barrier_report.automatic_information_included %}
+      <p>User agent used: {{issue.barrier_report.extra_data.http_user_agent}}</p>
+      <p>Languages: {{issue.barrier_report.extra_data.http_languages}}</p>
+      <p>Formats: {{issue.barrier_report.extra_data.http_accept}}</p>
+      <p>Encodeing: {{issue.barrier_report.extra_data.http_accept_encoding}}</p>
+    {% else %}
+      <p>None</p>
+    {% endif %}
+
+    </div>
+    {% if issue.barrier_report.auto_test %}
+    <div class="infoBoxTitle">Automatic Webpage test</div>
+    <div class="infobox">
+      <p>Automated accessibility score for the page: {{issue.barrier_report.auto_test.score_given|floatformat:"1"}}/100. <a href="{{issue.barrier_report.auto_test.url_to_report}}">See details on test results from the WTKollen checker.</a></p>
+    </div>
+    {% endif %}
+    {% if issue.barrier_report.user_survey_included %}
+    <p>THIS NEEDS TO BE UPDATED!  </p>
+    {% else %}
+    <p>User survey: Not included</p>
+    {% endif %}
+    <p>Fix: {{issue.barrier_report.issue_fix}}</p>
+  {% elif issue.information_request %}
+    <div class="infoBoxTitle">Information Request</div><br>
+    <div class="issueType">
+      <div class="infoBoxTitle">Description</div>
+      <div class="infobox">
+        <p>{{issue.information_request.format_requested}}</p>
+        <p>{{issue.information_request.requested}}</p>
+    </div><br>
+  {% endif %}
+  </div>
+  <p>Show all issues reported for this <a href="/issues_list/?url_is={{issue.webpage_reported}}">web page</a></p>
+  <p>Show all issues reported for this <a href="/issues_list/?url_startwith={{domain}}">website</a></p>
+  <p>You may view this issue in <a href="/api/IssueReport/{{issue.id}}/">JSON</a></p>
+</div>
+{% endif %}
+
+{% endblock %}

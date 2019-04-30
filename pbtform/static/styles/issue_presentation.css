@@ -1,0 +1,48 @@
+.issueType {
+  padding-left: 1em;
+  border: thin solid black;
+  display: inline-block;
+  background: #efefef
+}
+
+.infobox {
+  padding-left: 1em;
+  margin-right: 1em;
+  padding-right: 1em;
+  border: thin solid black;
+  background: white;
+  min-width: 12em;
+}
+
+.issuesPage {
+  margin-left: 1em;
+}
+
+.infoBoxTitle {
+  border-right: 1px solid #000;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-radius: 5px 5px 0 0;
+  display: inline-block;
+  padding-right: 2em;
+  padding-left: 0.3em;
+  margin-top: 1em;
+  background: #efefef
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  border: thin solid black;
+  background: #efefef
+}
+
+table td {
+  padding: 0.2em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  border: thin solid black;
+  background: white;
+}

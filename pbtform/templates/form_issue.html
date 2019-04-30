@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Public Barrier Form" %}{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/issue_report_style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'model_window.css' %}" />
+{% endblock %}
+{% block main_content %}
+<div>
+  <h3 class="form_title">Accessibility feedback</h3>
+  <form method="POST">
+    {{ form.non_field_errors }}
+    <div style="display:none">
+      {{ form.webpage_reported.errors }}
+      {{ form.webpage_reported }}
+    </div>
+    <div>
+      <label for="description">Please describe the accessibility problem</label><br>
+      <textarea row="2" id="description" name="description" required></textarea>
+    </div>
+    <div>
+      <input type="checkbox" name="information_request" id="information_request" value="information_request"></input>
+      <label for="information_request">I want to request an accessible version of content</label>
+      <div class="info_request"><br>
+      <label for="information_description">Please describe the content you need. For example, document name, or name of a video file.</label>
+      <textarea row="2" id="information_description" name="information_description"></textarea>
+      </div>
+    </div>
+    <div id="barrier_report" class="automatic_information">
+      <input type="checkbox" name="automatic_information" id="automatic_information"></input>
+      <label for="automatic_information">I want to send automatically collected information</label>
+      <a title="Find out more about the automatically collected information" href="/find_out_more_short/?{{url_params}}">Find out more</a>
+    </div>
+    <button type="submit" title="Send in the issue report">Send</button>
+    <div>
+      {{ form.issue_level.errors }}
+      {{ form.issue_level }}
+    </div>
+    {% csrf_token %}
+  </form>
+</div>
+{% endblock %}

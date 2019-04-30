@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Public Barrier Form" %}{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'model_window.css' %}" />
+{% endblock %}
+{% block main_content %}
+<div>
+  <h3>Get accessible info alternative</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+      {{ form.requested.errors }}
+      <label for="{{ form.requested.id_for_label }}">What info do you need?</label><br>
+      {{ form.requested }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.format_requested.errors }}
+      <label for="{{ form.format_requested.id_for_label }}">What can make it accessible for you?</label><br>
+      {{ form.format_requested }}
+    </div>
+    <br>
+    <a href="/start_report/?{{url_params}}" class="return_link back_button" title="Return to start"><button type="button">Back</button></a> 
+    <button title="Send your request for accessible information" type="submit">Send</button>
+  </form>
+</div>
+{% endblock %}

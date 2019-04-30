@@ -1,0 +1,62 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+<meta charset="utf-8">
+
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+<title>{% block title %}{% endblock %} - {% trans "PBT" %}</title>
+
+{% block css %}
+{% endblock%}
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+{% if style %}
+  <link rel="stylesheet" type="text/css" href="/static/styles/{{style}}.css" />
+{% else %}
+  <link rel="stylesheet" type="text/css" href="{% static 'base_style.css' %}" />
+{% endif %}
+{% block custom_css %}{% endblock %}
+{% block extrahead %}{% endblock %}
+</head>
+<body {% block body_attrs %}{% endblock %}>
+{% block header_banner %}
+<div id="pbt_header">
+  {% block logo %}
+  {% endblock logo %}
+  {% block extra_header_controls %}{% endblock %}
+</div>
+{% endblock %}
+<div id="mainContent" role="main" class="mainContent">
+{% block infoblock %}{% endblock %}
+
+{% block main_content %}Put main content here{% endblock %}
+{% block content %}{% endblock %}
+<div class="footer">
+</div>
+</div>
+{% block footer %}
+{% endblock %}
+
+{% block extrascripts %}
+{% endblock %}
+<script src="/static/scripts/font_available.js"></script>
+<script>
+let url_string = window.location.href;
+let url = new URL(url_string);
+{% if font_family %}
+let default_font = '{{font_family}}'
+{% else %}
+let default_font = null
+{% endif %}
+if (isFontAvailable(default_font)) {
+  textAreas = document.getElementsByTagName('textarea');
+  for (var i = 0; i < textAreas.length; i++) {
+    var status = textAreas[i].setAttribute("style", "font-family: " + default_font);
+  }
+  document.body.setAttribute("style", "font-family: " + default_font);
+}
+</script>
+</body>
+</html>

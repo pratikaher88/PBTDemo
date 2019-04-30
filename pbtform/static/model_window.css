@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  height: calc(100% - 10px);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.back_button {
+  margin-right: 1em;
+}
+
+.email_form {
+  margin-bottom: 1em;
+}

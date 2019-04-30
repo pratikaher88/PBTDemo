@@ -1,0 +1,25 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% block title %}{% trans "Public Barrier Form" %}{% endblock %}
+{% block custom_css %}{% endblock %}
+{% block extra_header_controls %}
+<div class="header">
+  <h1>Automatically collected information</h1>
+</div>
+{% endblock %}
+{% block main_content %}
+<div>
+
+<p>Information is automatically collected from your interaction with the webpage, and can be included in your accessibility report. These pieces of technical information can influence the appearance of the downloaded webpage and can therefore be helpful to understand and repair the accessibility problem.</p>
+<p>The information is about the browser you use and information sent by your browser to download the webpage.</p>
+
+<h2>The collected technical information in detail</h2>
+
+<p>HTTP_USER_AGENT: {{request.META.HTTP_USER_AGENT}}</p>
+<p>HTTP_ACCEPT_LANGUAGE: {{request.META.HTTP_ACCEPT_LANGUAGE}}</p>
+<p>HTTP_ACCEPT: {{request.META.HTTP_ACCEPT}}</p>
+<p>HTTP_ACCEPT_ENCODING: {{request.META.HTTP_ACCEPT_ENCODING}}</p>
+
+<a title="Go to page with full privacy policy" href="/privacy_statement/?{{url_params}}">Privacy statement</a>
+</div>
+{% endblock %}

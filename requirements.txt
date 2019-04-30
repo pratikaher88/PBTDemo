@@ -1,0 +1,6 @@
+django<2
+psycopg2
+uwsgi
+djangorestframework
+django-filter
+requests

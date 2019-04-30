@@ -1,0 +1,39 @@
+{% extends "base_site.html" %}  
+{% load i18n %}
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/home_page.css' %}" />
+{% endblock %}
+{% block extra_header_controls %}
+<div class="header">
+  <h1>Public Barrier Tracker demonstration</h1>
+</div>
+{% endblock %}
+{% block main_content %}
+<div>
+    
+  <p>This is a demonstration for the Public Barrier Tracker (PBT).  See the <a href="/project_summary/">PBT summary</a> for more on the project</p>
+  <h2>Variants of the PBT design</h2>
+  <p>The links below show three design variants.</p>
+  <ul>
+    <li><img src="/static/images/regering-button.png" alt="PBT button with grey background"> <a href="/government-se/">Regeringen.se example</a></li>
+    <li><img src="/static/images/PBT-button1.png" alt="PBT button with rounded corners"> <a href="/government-no/">Regjeringen.no example</a></li>
+    <li><img src="/static/images/PBT-button-2.png" alt="PBT button"> <a href="/tingtun/">Tingtun example</a></li>
+
+  </ul>
+  <h2>Page to track barriers</h2>
+  <p>Visit this page to get an overview of all the reported accessibility problems and their status.</p>
+  <ul>
+    <li><a href="/issues_list/">Public list of reported barriers</a></li>
+    <li><a href="/admin/">Management page for administrators (login needed)</a> - Update the status of the reported issues.</li>
+      </ul>
+<h2>Project reports</h2>
+<p>More information about the project.</p>
+<ul>
+    <li> <a href="https://link.springer.com/chapter/10.1007/978-3-319-94277-3_4">A Public Barrier Tracker to Support the Web Accessibility Directive, Paper at ICCHP 2018</a></li>
+    <li> <a href="https://box.tingtun.no/f/ec46ad8c8d3c4964885c/?dl=1">PBT presentation at ICCHP 2018</a></li>
+    <li> <a href="https://pts.se/sv/dokument/rapporter/ovrigt/2018/slutrapport-for-projektet-public-barrier-tracker/?_t_id=1B2M2Y8AsgTpgAmY7PhCfg%3d%3d&_t_q=pbt&_t_tags=language%3asv%2csiteid%3acc9c326a-1335-4ff9-9d9c-20754c9d1625&_t_ip=62.97.169.203&_t_hit.id=PTS_Ptsse2016_CMS_Models_Pages_DocumentPage/_26b79a0d-4915-4008-8c2a-7fe660ff39e4_sv&_t_hit.pos=1&_t_id=1B2M2Y8AsgTpgAmY7PhCfg%3d%3d&_t_q=pbt&_t_tags=language%3asv%2csiteid%3acc9c326a-1335-4ff9-9d9c-20754c9d1625&_t_ip=62.97.169.203&_t_hit.id=PTS_Ptsse2016_CMS_Models_Pages_DocumentPage/_26b79a0d-4915-4008-8c2a-7fe660ff39e4_sv&_t_hit.pos=1"> A blog at the Swedish Post and Telecom Authority about the project</a></li>
+</ul>
+ 
+</div>
+{% endblock %}

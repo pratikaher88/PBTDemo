@@ -1,0 +1,47 @@
+.mainContent {
+  max-width: 70em;
+  margin: auto;
+  display: table;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background: #f9f6f6;
+  border: solid thin black;
+  border-radius: 2em;
+  padding: 1.5em;
+}
+
+.footer {
+  text-align: center;
+  background: lightgray;
+}
+
+textarea {
+width:100%;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+}
+
+body {
+  background: #fffde9;
+  margin: 0;
+}
+
+.header {
+  padding: 0.01em;
+  background: #055e90;
+  color: white;
+  top: 0;
+}
+
+.header h1 {
+  margin-left: 1em;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+h3 {
+  font-size: 20px;
+}

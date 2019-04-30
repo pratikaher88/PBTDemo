@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Public Barrier Form" %}{% endblock %}
+{% block custom_css %}{% endblock %}
+{% block main_content %}
+<div>
+  <form method="POST">
+    {{ form.as_p }}
+    <a href="/">Cancel</a>
+    <button type="submit">Send</button>
+    {% csrf_token %}
+  </form>
+</div>
+{% endblock %}

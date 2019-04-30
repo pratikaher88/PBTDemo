@@ -1,0 +1,126 @@
+@media only screen and (max-width: 600px) {
+  body {
+    padding-top: 1.5em;
+  }
+}
+.smiley {
+  margin-right: 0.5em;
+  display: inline-block;
+  border: solid white;
+  border: solid white thin;
+  border-radius: 0.3em;
+}
+
+.smily_button {
+  display: inline-block;
+}
+.smiley:hover{
+  background: yellow;
+  border: solid black thin;
+  border-radius: 0.3em;
+}
+
+.link_button {
+  right: 0;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.button_container {
+  margin-top: 1.5em;
+  margin-bottom: -18px;
+  position: relative;
+  min-height: 72px;
+}
+
+.return_link {
+  display: none;
+}
+
+.accessibility_button {
+  background: white;
+  border: solid thin;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  border-radius: 0.5em;
+
+}
+
+.report_button {
+  left: 0;
+  padding: 0.5em;
+}
+
+.accessibility_button p {
+  margin: 0;
+}
+
+.mainContent {
+  background: #002e5e;
+  color: white;
+  display: inline-block;
+  width: 100%; 
+  height: 100%; 
+}
+
+/* unvisited link */
+.blue_link:link {
+    color: initial;
+}
+
+/* visited link */
+.blue_link:visited {
+    color: initial;
+}
+
+/* mouse over link */
+.blue_link:hover {
+    color: initial;
+}
+
+/* selected link */
+.blue_link:active {
+    color: initial;
+}
+
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+
+textarea {
+  width: calc(100% - 10px);
+  display: block;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h1 {
+  margin-top: 0px;
+  font-size: 20px;
+}

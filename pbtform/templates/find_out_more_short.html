@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'model_window.css' %}" />
+{% endblock %}
+
+{% block main_content %}
+<div>
+ <h1>Automatically collected data</h1>
+ <p>
+Data from your browser can be sent with the accessibility problem report. This can enable the developer to solve the problem. Please note that the collected information will only be used to remove the accessibility problems and for anonymized statics.
+</p>
+</div>
+
+  <a title="Return to start" href="/report_issue/?{{url_params}}" class="back_button" title="Go back to start"><button type="button">Back</button></a> 
+
+    <div class="privacy_policy">
+      <a title="Go to page with full description" href="/find_out_more/?{{url_params}}" target="_blank"> Show more details on the data collection, opens a new page </a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Public Barrier - Enforcement Procedure" %}{% endblock %}
+{% block custom_css %}{% endblock %}
+{% block extra_header_controls %}
+<div class="header">
+  <h1>Enforcement procedure</h1>
+</div>
+{% endblock %}
+{% block main_content %}
+<div>
+<p>This is a placeholder for a link to a national authority to guarantee compliance with the Directive.</p>
+<p>The Web Accessibility Directive states that: Member States shall ensure the availability of an adequate and effective enforcement procedure to guarantee compliance with this Directive, in relation to the requirements set out in Articles 4 and 5 and Article 7(1). In particular, Member States shall ensure that an enforcement procedure, such as the possibility of contacting an ombudsman, is in place to guarantee an effective handling of notifications or requests received as provided for in point (b) of Article 7(1) and to review the assessment referred to in Article 5.</p>
+<p>By 23 September 2018, Member States shall inform the Commission of the body responsible for the enforcement of this Directive.</p>
+<img alt="A friendly policeman to illustrate the WAD enforcement procedure." src="{% static 'images/PBT-police.png' %}" width="200" height="300"/>
+</div>
+{% endblock %}

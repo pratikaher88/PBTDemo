@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Public Barrier Form" %}{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'model_window.css' %}" />
+{% endblock %}
+{% block main_content %}
+<div>
+  Thank you for your feedback!<br>
+  Your ticket number is: {{issue_number}}<br>
+  Visit your <a title="Accessibility feedback and related updates" target="_blank" href="/issue_presentation/{{issue_number}}/">accessibility feedback</a> to see you report and related updates.
+  
+  {% if add_email %}
+  <form method="POST" class="email_form">
+    {{ form.as_p }}
+    <a title="Return to start" href="/report_issue/?{{url_params}}" class="return_link back_button" title="Go back to start"><button type="button">Back</button></a> 
+    <button title="Send your email to receive updates on the feedback you sent" type="submit">Send</button>
+    {% csrf_token %}
+  </form>
+  <a title="Description of personal data and its intended use." target="_blank" title="Link to Barrier Tracker privacy statement" href="/privacy_statement/">Privacy statement</a>
+    {% else %}
+    <p>Thank you for following up on the issue</p>
+    <p><a title="Return to start" href="/start_report/?{{url_params}}" class="return_link back_button" title="Go back to start"><button type="button">Back</button></a></p>
+  {% endif %}
+</div>
+{% endblock %}

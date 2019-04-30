@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'report_style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'model_window.css' %}" />
+{% endblock %}
+{% block main_content %}
+<div class="button_container">
+  <div class="report_button accessibility_button">
+    <div class="smily_button">
+      <a title="Hate: Horrible accessibility barrier" class="smiley" href="/report/?level=1&{{url_params}}"><img height="32" width="32" src="{% static 'images/PBT-hate.png' %}"></img></a>
+    </div>
+    <div class="smily_button">
+      <a title="Dislike: Very annoying accessibility barrier" class="smiley" href="/report/?level=2&{{url_params}}"><img height="32" width="32" src="{% static 'images/PBT-disklike.png' %}"></img></a>
+    </div>
+    <div class="smily_button">
+      <a title="Neutral: Accessibility barrier" class="smiley" href="/report/?level=3&{{url_params}}"><img height="32" width="32" src="{% static 'images/PBT-neutral.png' %}"></img></a>
+    </div>
+    <p><a title="Report an accessibility issue with no gradeing" href="/report/?{{url_params}}" class="blue_link">Report accessibility problem</a></p>
+  </div>
+  <a title="Request information in a different format souch as plain text or video with subtilites to make it accessible" href="/request/?{{url_params}}" class="link_button blue_link accessibility_button"><label>Request information</label></a>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base_issues_list.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Public Barrier Tracker - Issues list" %}{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/issues_list.css' %}" />
+{% endblock %}
+{% block main_content %}
+
+<h1>Public Barrier Tracker</h1>
+<h2>List of submitted accessibility barriers and info requests.</h2>
+<div class="issuesPage">
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Number</th>
+    <th>Title</th>
+    <th>Reported</th>
+    <th>Status</th>
+  </tr>
+  {% for item in issues %}
+  <tr>
+    <td>Barrier</td>
+    <td><a target="_blank" href="/api/IssueReport/{{item.id}}/">{{item.id}}</a></td>
+    <td>{{item.barrier_report.what_they_did}}</td>
+    <td>{{item.date_created|date:'Y-m-d H:i'}}</td>
+    <td>
+      {% if item.barrier_report.status %}
+      {{item.barrier_report.status.accepted}}
+      {% else %}
+      Not reviewed
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+<a
+{% if not previous_page %}
+ class="hidden" 
+{% endif %}
+href="/admin_issues/?page={{previous_page}}">Previus</a>
+
+<a
+{% if not next_page %}
+ class="hidden"
+{% endif %}
+ href="/admin_issues/?page={{next_page}}">Next</a>
+
+<p>Page number: {{current_page}}</p>
+{% endblock %}

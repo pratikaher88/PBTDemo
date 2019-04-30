@@ -1,0 +1,30 @@
+.issuesPage {
+  margin-left: 1em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  border-bottom: thin solid black;
+}
+
+table td {
+  padding: 0.2em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  border-right: thin solid black;
+}
+
+table td:last-child {
+  border-right: none;
+}
+
+form {
+  display: inline-block;
+}

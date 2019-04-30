@@ -1,0 +1,60 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Public Barrier Tracker - Issues list" %}{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/issues_list.css' %}" />
+{% endblock %}
+{% block extra_header_controls %}
+<div class="header">
+  <h1>Public Barrier Tracker</h1>
+</div>
+{% endblock %}
+{% block main_content %}
+<h2>List of registered accessibility problems</h2>
+<div class="issuesPage">
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Number</th>
+    <th>Description</th>
+    <th>Reported</th>
+    <th>Report from page</th>
+  </tr>
+  {% for item in issues %}
+  <tr>
+    {% if item.information_request %}
+    <td>Information request</td>
+    <td><a target="_blank" href="/issue_presentation/{{item.id}}/">{{item.id}}</a></td>
+    <td>{{item.information_request.format_requested}}</td>
+    {% elif item.barrier_report %}
+    <td>Barrier</td>
+    <td><a target="_blank" href="/issue_presentation/{{item.id}}/">{{item.id}}</a></td>
+    <td>{{item.barrier_report.what_went_wrong}}</td>
+    {% else %}
+    <td>None</td>
+    <td>{{item.id}}</td>
+    <td>None</td>
+    {% endif %}
+    <td>{{item.date_created|date:'Y-m-d H:i'}}</td>
+    <td><a href="{{item.webpage_reported}}" target="_blank">{{item.webpage_reported}}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<p>This list is also avaible in <a href="/api/IssueReport/">JSON format</a>.</p>
+<p>
+<a
+{% if not previous_page %}
+ class="hidden" 
+{% endif %}
+href="/issues_list/?page={{previous_page}}{{add_parameters}}">Previous</a>
+Page: {{current_page}} 
+<a
+{% if not next_page %}
+ class="hidden"
+{% endif %}
+ href="/issues_list/?page={{next_page}}{{add_parameters}}">Next</a>
+</p>
+{% endblock %}

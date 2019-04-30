@@ -1,0 +1,77 @@
+.form_title {
+  margin-top: 0;
+}
+
+.smiley {
+  margin-right: 0.5em;
+  display: inline-block;
+  border: solid white;
+  border: solid white thin;
+  border-radius: 0.3em;
+}
+
+.smily_button {
+  display: inline-block;
+}
+.smiley:hover, .smiley:focus{
+  background: yellow;
+  border: solid black thin;
+  border-radius: 0.3em;
+}
+
+.link_button {
+  right: 0;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.button_container {
+  margin-top: 1.5em;
+  margin-bottom: -18px;
+  position: relative;
+  min-height: 72px;
+}
+
+.accessibility_button {
+  background: white;
+  border: solid thin;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+
+}
+
+.report_button {
+  left: 0;
+  padding: 0.5em;
+}
+
+.accessibility_button p {
+  margin: 0;
+}
+
+.checkBoxDiv {
+  margin-bottom: 1em;
+}
+
+.webpage_report {
+  visibility: hidden;
+}
+
+.extra_info, .info_request {
+  display: none;
+}
+
+input[type=radio]#barrier_report:checked ~ .extra_info {
+  display: inline;
+}
+
+input[type=checkbox]#information_request:checked ~ .info_request {
+  display: inline;
+}
+
+textarea {
+  font-size: large;
+}

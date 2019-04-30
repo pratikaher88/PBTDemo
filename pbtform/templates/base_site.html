@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+<meta charset="utf-8">
+
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+<title>{% block title %}{% endblock %} - {% trans "PBT" %}</title>
+
+{% block css %}
+{% endblock%}
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+<link rel="stylesheet" type="text/css" href="{% static 'styles/base_site.css' %}" />
+{% block custom_css %}{% endblock %}
+{% block extrahead %}{% endblock %}
+</head>
+<body {% block body_attrs %}{% endblock %}>
+{% block header_banner %}
+<div id="pbt_header">
+  {% block logo %}
+  {% endblock logo %}
+  {% block extra_header_controls %}{% endblock %}
+</div>
+{% endblock %}
+<div id="mainContent" role="main" class="mainContent">
+{% block infoblock %}{% endblock %}
+
+{% block main_content %}Put main content here{% endblock %}
+{% block content %}{% endblock %}
+<div class="footer">
+</div>
+</div>
+{% block footer %}
+{% endblock %}
+
+{% block extrascripts %}
+{% endblock %}
+</body>
+</html>
